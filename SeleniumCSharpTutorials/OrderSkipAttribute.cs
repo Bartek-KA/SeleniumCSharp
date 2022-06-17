@@ -18,8 +18,10 @@ namespace SeleniumCSharpTutorials
     {
         [Test]
         [Category("OrderSkipAttribute")]
+        [Order(2)]
         public void TestMethod1()
         {
+            Assert.Ignore("Defect 12345");
             IWebDriver driver = new ChromeDriver();
             driver.Url = "https://www.facebook.com/";
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
@@ -29,6 +31,7 @@ namespace SeleniumCSharpTutorials
 
         [Test]
         [Category("OrderSkipAttribute")]
+        [Order(1)]
         public void TestMethod2()
         {
             IWebDriver driver = new FirefoxDriver();
@@ -40,9 +43,10 @@ namespace SeleniumCSharpTutorials
 
         [Test]
         [Category("OrderSkipAttribute")]
+        [Order(0)]
         public void TestMethod3()
         {
-            IWebDriver driver = new EdgeDriver();
+            IWebDriver driver = new FirefoxDriver();
             driver.Url = "https://www.facebook.com/";
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium CSharp");
