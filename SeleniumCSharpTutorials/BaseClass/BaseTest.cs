@@ -24,7 +24,7 @@ namespace SeleniumCSharpTutorials.BaseClass
         [TearDown]
         public void Close()
         {
-            driver.Quit();
+            driver.Dispose();
         }
     }
 }
