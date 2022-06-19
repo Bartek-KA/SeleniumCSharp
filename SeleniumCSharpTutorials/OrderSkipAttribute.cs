@@ -22,8 +22,10 @@ namespace SeleniumCSharpTutorials
         public void TestMethod1()
         {
             Assert.Ignore("Defect 12345");
-            IWebDriver driver = new ChromeDriver();
-            driver.Url = "https://www.facebook.com/";
+            IWebDriver driver = new ChromeDriver
+            {
+                Url = "https://www.facebook.com/"
+            };
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium CSharp");
             driver.Dispose();
@@ -34,8 +36,10 @@ namespace SeleniumCSharpTutorials
         [Order(1)]
         public void TestMethod2()
         {
-            IWebDriver driver = new FirefoxDriver();
-            driver.Url = "https://www.facebook.com/";
+            IWebDriver driver = new FirefoxDriver
+            {
+                Url = "https://www.facebook.com/"
+            };
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium CSharp");
             driver.Dispose();
@@ -46,8 +50,10 @@ namespace SeleniumCSharpTutorials
         [Order(0)]
         public void TestMethod3()
         {
-            IWebDriver driver = new FirefoxDriver();
-            driver.Url = "https://www.facebook.com/";
+            IWebDriver driver = new FirefoxDriver
+            {
+                Url = "https://www.facebook.com/"
+            };
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium CSharp");
             driver.Dispose();

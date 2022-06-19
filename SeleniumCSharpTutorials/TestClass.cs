@@ -20,16 +20,28 @@ namespace SeleniumCSharpTutorials
         public void TestMethod1()
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
-            emailTextField.SendKeys("Selenium CSharp");
-            driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _9xo6 _4jy3 _4jy1 selected _51sy']")).Click();
-            IWebElement createAccountBtn = driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']"));
-            createAccountBtn.Click();
-            IWebElement monthDropdownList = driver.FindElement(By.XPath(".//*[@class='_9407 _5dba _9hk6 _8esg']"));
-            SelectElement element = new SelectElement(monthDropdownList);
-            element.SelectByIndex(1);
-            element.SelectByText("Mar");
-            element.SelectByValue("6");          
+            try
+            {
+                driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _9xo6 _4jy3 _4jy1 selected _51sy']")).Click();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                throw;
+            }
+            finally
+            {
+                IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
+                emailTextField.SendKeys("Selenium CSharp");
+                IWebElement createAccountBtn = driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _6lti _4jy6 _4jy2 selected _51sy']"));
+                createAccountBtn.Click();
+                IWebElement monthDropdownList = driver.FindElement(By.XPath(".//*[@class='_9407 _5dba _9hk6 _8esg']"));
+                SelectElement element = new SelectElement(monthDropdownList);
+                element.SelectByIndex(1);
+                element.SelectByText("Mar");
+                element.SelectByValue("6");
+            }
+                   
         }
 
         [Test]
