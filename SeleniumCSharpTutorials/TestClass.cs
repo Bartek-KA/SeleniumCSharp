@@ -1,14 +1,16 @@
-﻿// NUnit 3 tests
-// See documentation : https://github.com/nunit/docs/wiki/NUnit-Documentation
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using SeleniumCSharpTutorials.BaseClass;
+
+
+/// <summary>
+/// Opracowane dla wersji:
+/// Chrome: Wersja 102.0.5005.115 (Oficjalna wersja) (64-bitowa)
+/// Firefox: Wersja 101.0.1 (64 bity)
+/// </summary>
 
 namespace SeleniumCSharpTutorials
 {
@@ -22,7 +24,7 @@ namespace SeleniumCSharpTutorials
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             try
             {
-                driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _9xo6 _4jy3 _4jy1 selected _51sy']")).Click();
+                driver.FindElement(By.XPath(".//*[@class='_42ft _4jy0 _9xo6 _4jy3 _4jy1 selected _51sy']")).Click(); //Akceptowanie niezbędnych pojawiających się cookies
             }
             catch (Exception e)
             {
@@ -58,7 +60,7 @@ namespace SeleniumCSharpTutorials
         {
             IWebElement emailTextField = driver.FindElement(By.XPath(".//*[@id='email']"));
             emailTextField.SendKeys("Selenium CSharp");
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
         }
     }
 }

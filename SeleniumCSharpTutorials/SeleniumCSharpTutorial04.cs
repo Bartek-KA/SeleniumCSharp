@@ -36,7 +36,7 @@ namespace SeleniumCSharpTutorials
             {
                 ITakesScreenshot ts = driver as ITakesScreenshot;
                 Screenshot screenshot = ts.GetScreenshot();
-                screenshot.SaveAsFile("C:\\Users\\ryzua\\source\\repos\\SeleniumCSharp\\SeleniumCSharpTutorials\\Screenshots\\Screenshot1.jpeg", ScreenshotImageFormat.Jpeg);
+                screenshot.SaveAsFile("C:\\Users\\ryzua\\source\\repos\\SeleniumCSharp\\SeleniumCSharpTutorials\\Screenshots\\Screenshot1.jpeg", ScreenshotImageFormat.Jpeg); //Change path for one matching your folders
                 Console.WriteLine(e.StackTrace);
                 throw;
             }
